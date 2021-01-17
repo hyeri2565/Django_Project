@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+
+<head>
+<meta charset="UTF-8">
+<title>팀 등록</title>
+  <style>
+
+ h, td, tr, input, textarea, select, FORM
+ {font-family:고딕;
+  font-size:1em;
+  border-radius:5px;
+ }
+ table, FORM
+ {
+  border:10px solid white;
+  border-spacing:20px;
+ }
+
+  </style>
+</head>
+
+<body style="background: forestgreen;">
+
+<h1>☆ 팀 등록 ☆</h1>
+<br>
+
+<form method="POST" action="{% url 'Register_team:register_complete' %}">
+    {% csrf_token %}
+    <center>
+    <table boder = "" bgcolor = "#faebd7" cellspacing = "1" >
+        <tr>
+            <td> 팀 이름 : </td>
+            <td><input id="team_name" type = "text" name="team_name"></td>
+        </tr>
+
+        <tr>
+            <td> 과목명 : </td>
+            <td>
+                {% for lecture in all_lecture %}
+                    <input type="radio" name="lecture" value={{ lecture.name_lecture }}>{{ lecture.name_lecture }}<br>
+                {% endfor %}
+            </td>
+        </tr>
+        <tr>
+            <td> 현재 팀원 수 : </td>
+            <td><input type="number" id="num_member" name="num_member" min="1" max="7" step="1"></td>
+        </tr>
+
+        <tr>
+            <td> 팀보유 역량  </td>
+            <td><input type = "checkbox" id="members_ability1" name="members_ability1"> 발표
+                <input type = "checkbox" id="members_ability2" name="members_ability2"> 코딩
+                <input type = "checkbox" id="members_ability3" name="members_ability3"> 자료 조사
+                <input type = "checkbox" id="members_ability4" name="members_ability4"> PPT 제작
+                <input type = "checkbox" id="members_ability5" name="members_ability5"> 단합력
+            </td>
+        </tr>
+    </table>
+    <input type = "submit" value = "등록하기"/>
+    <input type = "reset" value = "돌아가기"/>
+        </center>
+</form>
+</body>
+

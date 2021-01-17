@@ -1,0 +1,12 @@
+<body style="background: forestgreen;">
+{% csrf_token %}
+        <div id="register_complete">
+            <center>
+                <div id="register_complete">
+                    <h1 style="color: white">You're team {{ BeforeTeam.team_name }} has been formed.</h1>
+                </div>
+                <h2 style="color: white">Go to <a href="{% url 'users:mypage' %}">My Page</a> few days later to check your final teammates.</h2>
+            </center>
+
+        </div>
+    </body>
