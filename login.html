@@ -1,0 +1,36 @@
+
+<center>
+<h1 style="color: white" style="font-family: '210 나무고딕 B'" style="font-size: 30px">Login</h1>
+</center>
+<body style="background: forestgreen">
+{% if error %}
+<p>{{ error }}</p>
+{% endif %}
+<br><br>
+<form style="background: lightgoldenrodyellow;font-size: 20px; font-family: '210 나무고딕 R'" method="post" action="{% url 'users:login' %}">
+    <center>
+    {% csrf_token %}
+        <br>
+        학번 : <input name="id" type="text">
+        <br><br>
+        Password : <input name="pw" type="password">
+        <br><br>
+        <input type="submit" class="btn btn-primary" value="Login">
+        </center>
+</form>
+<form style="background: lightgoldenrodyellow">
+    <center>
+        <style>
+            h3 {
+                color: black;
+                font-size: 20px;
+                font-family: "210 나무고딕 R"}
+        </style>
+        <br>
+        <h3 align="center">아직 SEAMPLE 회원이 아니신가요?</h3>
+        <form>
+            <button formaction="{% url 'users:signup' %}">Join</button>
+        </form>
+    </center>
+    </form>
+</body>

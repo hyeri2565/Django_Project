@@ -1,0 +1,112 @@
+<head>
+    <title>
+        Welcome to SEAMPLE
+    </title>
+    <meta charset="utf-8">
+    <style>
+    .cols li{
+        display:inline-block;
+        margin-top:5px;
+        color:white;
+
+    }
+    .col1  {
+        font-size: 20px;
+        color:white;
+
+    }
+    .col2 {
+        font-size:20px;
+        color:white;
+    }
+    .col3 {
+        font-size:20px;
+        color:white;
+    }
+
+    ul{
+        list-style-type:none;
+    }
+    #rec {
+        border-top:solid 1px #cccccc;
+        border-bottom:solid 1px #cccccc;
+        text-align:center;
+        font-family: 돋움체;
+
+
+
+    }
+    #top {
+        border:1px solid lightgoldenrodyellow;
+        background-color: lightgoldenrodyellow;
+    /*width:40%;*/
+        text-align: center;
+        font-size:25px;
+    }
+    #bottom{
+        color:white;
+    }
+    .licss{
+        color:white;
+
+    }
+
+    </style>
+</head>
+
+<body style="background:forestgreen">
+{% load static %}
+<img src = "{% static 'users/SEAMPLE_logo.jpg'%}" width="100" height="100">
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<h2 id=top align="center" ><b>회원가입</b></h2></p>
+
+{% if error %}
+<p>{{ error }}</p>
+{% endif %}
+
+<form method="post" action="{% url 'users:welcome' %}" style="background-color: lightgoldenrodyellow; font-size: 20px;font-family: '210 나무고딕 R'">
+    {% csrf_token %}
+        <br>
+    <center>
+    <table>
+        <tr>
+            <td>학번 : </td>
+            <td><input type="text" id="id" name='id'></td>
+        </tr>
+        <tr>
+            <td>Password : </td>
+            <td><input type="password" id="pw" name="pw"></td>
+            <td> ※8글자 이상 적어주세요.</td>
+        </tr>
+        <tr>
+            <td>Check_Password : </td>
+            <td><input type="password" id="pw2" name="pw2"></td>
+        </tr>
+        <tr>
+            <td>KAKAO_ID : </td>
+            <td><input type="text" id="kid" name="kid"></td>
+        </tr>
+    </table>
+        <br>
+
+<!--    <ul id="rec">
+        <li>
+            <ul class="cols">
+                <br>
+                <li class="col1" >Student_num : <input type="text" id='id' name="id" ></li><li class="licss">※본인의 학번을 입력해주세요</li>
+                <br><br>
+                <li class="col2" >Password : <input type="password" id='pw' name="pw"></li><li class="licss">※8글자 이상 적어주세요</li>
+                <br><br>
+                <li class="col2" >Check_Password : <input type="password" id='pw2' name="pw2" ></li>
+                <br><br>
+                <li class="col3" >KAKAO_ID : <input type="text" id='kid' name="kid"></li>
+
+                <br>
+            </ul><br>
+        </li>
+    </ul>-->
+    <!--<br><p id="bottom" align="center">모든 항목을 적고 버튼을 눌러주세요<input  type="submit" value="Join">-->
+    <button formaction="{% url 'users:welcome' %}">Join</button>
+        <br>
+        </center>
+</form>
+</body>

@@ -1,0 +1,25 @@
+
+<body style="background: forestgreen;">
+<form method="post" action="{% url 'users:mypage' %}">
+    {% csrf_token %}
+    <input type="submit" value="Mypage">
+    <button formaction="{% url 'users:logout' %}">Logout</button>
+    <button class='btn btn-success pull-right' formaction="{% url 'Register_team:register' %}">팀 등록</button>
+</form>
+
+
+        <div id="main2">
+            {% load static %}
+            <center><img height="300" src="{% static "users/SEAMPLE_logo.jpg" %}" width="300"></center>
+            <center>
+                <div id="welcome">
+                    <h1 style="color: white">Hello, {{ SeamUser.kid }}</h1>
+                    <h1 style="color: white">Welcome to SME Team Maker, SEAMPLE.</h1>
+                </div>
+                <div id='for'>
+                    <h1 style="color: white">For Your Quality Team Project.</h1>
+                </div>
+            </center>
+
+        </div>
+    </body>
